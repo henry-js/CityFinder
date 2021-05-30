@@ -16,7 +16,6 @@ namespace CityFinder
         static async Task Main(string[] args)
         {
             // Set up api request
-            ApiHelper.InitializeClient();
             List<String> worldCountries = GetCountryCodes();
 
             while (true)
@@ -40,7 +39,7 @@ namespace CityFinder
                 }
 
                 var response = await CityProcessor.FindCity(countryCode, zipCode);
-                Console.WriteLine($"{response}");
+                Console.WriteLine($"{response.CityEn}");
                 Console.WriteLine($"Press any key to try again.");
                 Console.ReadLine();
                 Console.Clear();

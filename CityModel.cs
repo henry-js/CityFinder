@@ -11,8 +11,7 @@ namespace CityFinder
         public Query Query { get; set; }
 
 
-       [JsonExtensionData]
-       public IDictionary<string, JsonElement> AdditionalData { get; set; }
+       public Dictionary<string, List<CityInfo>> Results { get; set; }
     }
 
     public class Query
@@ -23,7 +22,7 @@ namespace CityFinder
     }
 
 
-    public  class CityInfo
+    public class CityInfo
     {
         [JsonPropertyName("postal_code")]
         public string PostalCode { get; set; }
@@ -53,26 +52,4 @@ namespace CityFinder
         [JsonPropertyName("province_code")]
         public string ProvinceCode { get; set; }
     }
-
-    // public partial class CityModel
-    // {
-    //     public static CityModel FromJson(string json) => JsonConvert.DeserializeObject<CityModel>(json, QuickType.Converter.Settings);
-    // }
-
-    // public static class Serialize
-    // {
-    //     public static string ToJson(this CityModel self) => JsonConvert.SerializeObject(self, QuickType.Converter.Settings);
-    // }
-
-    // internal static class Converter
-    // {
-    //     public static readonly JsonSerializerSettings Settings = new JsonSerializerSettings
-    //     {
-    //         MetadataPropertyHandling = MetadataPropertyHandling.Ignore,
-    //         DateParseHandling = DateParseHandling.None,
-    //         Converters = {
-    //             new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal }
-    //         },
-    //     };
-    // }
 }
